@@ -1,5 +1,8 @@
 # 🔐 Hardware Login Key
 
+![Under Construction](https://img.shields.io/badge/status-under%20construction-orange)
+
+
 ## Introduction
 This project provides a simple solution for securely logging into a system or website using a hardware key. By pressing a physical button connected to an ATtiny85 microcontroller, users can automate the login process, reducing the risk of password exposure.
 
