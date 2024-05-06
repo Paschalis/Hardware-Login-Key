@@ -46,7 +46,7 @@ To compile the C implementation, follow these steps:
 
 1. Open a terminal.
 2. Navigate to the `C_implementation` folder.
-3. Read the [instructions](INSTRUCTIONS_C.md) for C implementation.
+3. Read the [instructions](INSTRUCTIONS_C.md) or refer to [using make](C_Makefile_Instructions.md) for C implementation.
 
 ### C++ Implementation
 To compile the C++ implementation, follow these steps:
