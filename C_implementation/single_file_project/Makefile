@@ -4,7 +4,7 @@
 CC = avr-gcc
 OBJCOPY = avr-objcopy
 MCU = attiny85
-F_CPU = 8000000UL
+F_CPU = 16500000UL
 BAUDRATE = 19200
 PORT = /dev/ttyACM0
 
@@ -32,7 +32,7 @@ all: $(HEX)
 	$(OBJCOPY) -O ihex -R .eeprom $< $@
 
 flash: $(HEX)
-	avrdude -c avrisp -p $(MCU) -P $(PORT) -b $(BAUDRATE) -U flash:w:$<
+	avrdude -c arduino -p $(MCU) -P $(PORT) -b $(BAUDRATE) -U flash:w:$<
 
 clean:
 	rm -f $(OBJ) $(HEX) *.elf
