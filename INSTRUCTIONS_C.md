@@ -68,7 +68,7 @@
 4. **Upload `.hex` File**: Use AVRDUDE or a similar programming tool to upload the `.hex` file to the ATtiny85. For example:
 
     ```bash
-    avrdude -c avrisp -p attiny85 -P <port> -b 19200 -U flash:w:main.hex
+    avrdude -c arduino -p attiny85 -P <port> -b 19200 -U flash:w:main.hex
     ```    
     Replace `<port>` with the serial port connected to your Arduino Uno.
 
@@ -76,7 +76,7 @@
     
     ```bash
 
-    avrdude -c avrisp -p attiny85 -P /dev/ttyACM0 -b 19200 -U flash:w:main.hex
+    avrdude -c arduino -p attiny85 -P /dev/ttyACM0 -b 19200 -U flash:w:main.hex
     ```
 
 5. **Verify Upload**: After uploading the `.hex` file, verify that the programming was successful. AVRDUDE may provide feedback or confirmation messages.
