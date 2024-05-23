@@ -19,7 +19,7 @@ ELF = Christmas_song.elf
 HEX = Christmas_song.hex
 
 # Programmer settings
-PROGRAMMER = avrisp
+PROGRAMMER = arduino
 PORT = /dev/ttyACM0
 BAUD = 19200
 

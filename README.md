@@ -2,21 +2,20 @@
 
 ![Under Construction](https://img.shields.io/badge/status-under%20construction-orange)
 
-
 ## Introduction
-This project provides a simple solution for securely logging into a system or website using a hardware key. By pressing a physical button connected to an ATtiny85 microcontroller, users can automate the login process, reducing the risk of password exposure.
+This project offers a straightforward solution for securely logging into a system or website using a hardware key. By pressing a physical button connected to an ATtiny85 microcontroller, users can automate the login process, thereby reducing the risk of password exposure.
 
 ## 🎯 Purpose
-The purpose of this project is to offer a more secure alternative to typing long or complex passwords manually, especially in environments where there may be observers or surveillance. With the hardware key, users can log in quickly and securely without the risk of their password being intercepted or observed.
+The aim of this project is to provide a more secure alternative to manually typing long or complex passwords, particularly in environments where there may be observers or surveillance. With the hardware key, users can log in quickly and securely without the risk of their password being intercepted or observed.
 
 ## Benefits
-- **Enhanced Security:** Eliminates the risk of password interception by keystroke loggers or shoulder surfing.
-- **Convenience:** Simplifies the login process, particularly for systems with lengthy or complex passwords.
-- **Privacy:** Protects the confidentiality of passwords in public or shared environments.
-- **Portability:** Can be easily carried and used on multiple systems or devices.
+- **Enhanced Security:** Prevents password interception by keystroke loggers or shoulder surfing.
+- **Convenience:** Simplifies the login process, especially for systems with lengthy or complex passwords.
+- **Privacy:** Maintains the confidentiality of passwords in public or shared environments.
+- **Portability:** Easily carried and used on multiple systems or devices.
 
 ## How it Works
-The hardware key is based on an ATtiny85 microcontroller using V-USB library to implement USB Human Interface Device (HID) keyboard functionality. This allows the ATtiny85 to act as a keyboard when connected to a computer via USB. When the button connected to the ATtiny85 is pressed, it sends predefined keystrokes to the computer, automating the login process.
+The hardware key utilizes an ATtiny85 microcontroller with the V-USB library to implement USB Human Interface Device (HID) keyboard functionality. This allows the ATtiny85 to act as a keyboard when connected to a computer via USB. When the button connected to the ATtiny85 is pressed, it sends predefined keystrokes to the computer, automating the login process.
 
 ## 📁 Folder Structure (C and C++)
 - 📁 **Hardware-Login-Key**
@@ -46,14 +45,14 @@ To compile the C implementation, follow these steps:
 
 1. Open a terminal.
 2. Navigate to the `C_implementation` folder.
-3. Read the [instructions](INSTRUCTIONS_C.md) or refer to [using make](C_Makefile_Instructions.md) for C implementation.
+3. Read the [instructions](INSTRUCTIONS_C.md) or refer to [using make](C_Makefile_Instructions.md) for the C implementation.
 
 ### C++ Implementation
 To compile the C++ implementation, follow these steps:
 
 1. Open a terminal.
 2. Navigate to the `CPP_implementation` folder.
-3. Read the [instructions](INSTRUCTIONS_CPP.md) for C++ implementation.
+3. Read the [instructions](INSTRUCTIONS_CPP.md) for the C++ implementation.
 
 ## 📋 Usage
 1. Connect the hardware key to the computer.
@@ -88,6 +87,4 @@ This project is licensed under the [MIT License](LICENSE).
 
 - [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-
 **Enjoy** your secure **hardware** login key 🔐! **Thank you for visiting Hardware-Login-Key!** ✨
-
