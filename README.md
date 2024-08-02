@@ -80,6 +80,7 @@ To compile the C++ implementation, follow these steps:
 ## PCB Designs
 
 ### In KiCad
+![Alt Text](Images/gif/kicad_workflow.gif)
 
 The hardware key is available in multiple PCB package versions to accommodate different assembly preferences:
 - **Through-Hole (DIP)**: Easy to assemble manually, suitable for prototyping.
@@ -88,6 +89,9 @@ The hardware key is available in multiple PCB package versions to accommodate di
   - ![SMD SOIC PCB](Images/SOIC.png)
 - **SMD (QFN)**: For advanced designs requiring a small footprint.
   - ![QFN PCB](Images/QFN.png)
+
+### In Fusion 360
+![Under Construction](https://img.shields.io/badge/status-under%20construction-orange)
 
 You can view the design files and images for each PCB version in the `PCB_Designs` folder.
 
