@@ -1,91 +1,104 @@
-#include <avr/io.h>               // AVR IO definitions
-#include <avr/interrupt.h>        // AVR interrupt definitions
-#define F_CPU 1000000UL           // AVR clock frequency, assuming 1MHz
-#include <util/delay.h>           // AVR delay functions
-#include <avr/pgmspace.h>         // AVR program memory space functions
-#include <avr/eeprom.h>           // AVR EEPROM functions
-#include <usbdrv/usbdrv.h>        // USB driver library
-#include <aes/aes.h>              // AES library for encryption
+// avr-gcc -mmcu=attiny85 -Os -DF_CPU=16000000UL -o main.elf main.c usbdrv.c
 
-// USB HID key codes for relevant keys
-#define KEY_ENTER 0x28            // USB HID key code for Enter
-#define KEY_S 0x16                // USB HID key code for 'S'
-#define KEY_T 0x17                // USB HID key code for 'T'
-#define KEY_U 0x18                // USB HID key code for 'U'
-#define KEY_D 0x07                // USB HID key code for 'D'
-#define KEY_Y 0x1C                // USB HID key code for 'Y'
+#include <avr/io.h>
+#include <avr/interrupt.h>
+#include <util/delay.h>
+#include <avr/pgmspace.h>
+#include <stdio.h>
+#include "usbdrv.h"
 
-// Global variable for the encryption key stored in EEPROM
-const uint8_t encryptionKey[16] EEMEM = {0x12, 0x34, 0x56, 0x78, 0x9A, 0xBC, 0xDE, 0xF0, 0x12, 0x34, 0x56, 0x78, 0x9A, 0xBC, 0xDE, 0xF0};
+#define BUTTON_PIN   PB1  // Pin connected to the button
+#define BUTTON_DDR   DDRB
+#define BUTTON_PORT  PORTB
 
-// Function to encrypt the password using AES
-void encryptPassword(uint8_t *password, uint8_t *encryptedPassword) {
-    uint8_t key[16];
-    // Read the encryption key from EEPROM
-    eeprom_read_block((void *)key, (const void *)encryptionKey, 16);
-    // Encrypt the password using AES ECB mode
-    AES128_ECB_encrypt(password, key, encryptedPassword);
+// Define the HID report descriptor length
+#define USB_CFG_HID_REPORT_DESCRIPTOR_LENGTH 29
+
+// USB Configuration
+USB_PUBLIC uchar usbFunctionSetup(uchar data[8]) {
+    return 0; // No additional setup needed
 }
 
-// USB setup function
-usbMsgLen_t usbFunctionSetup(uint8_t data[8]) {
-    return 0;
+// USB Report Descriptor - Keyboard
+PROGMEM const char usbHidReportDescriptor[USB_CFG_HID_REPORT_DESCRIPTOR_LENGTH] = {
+    0x05, 0x01,                    // USAGE_PAGE (Generic Desktop)
+    0x09, 0x06,                    // USAGE (Keyboard)
+    0xa1, 0x01,                    // COLLECTION (Application)
+    0x75, 0x01,                    // REPORT_SIZE (1)
+    0x95, 0x08,                    // REPORT_COUNT (8)
+    0x05, 0x07,                    // USAGE_PAGE (Keyboard)
+    0x19, 0xe0,                    // USAGE_MINIMUM (Keyboard LeftControl)
+    0x29, 0xe7,                    // USAGE_MAXIMUM (Keyboard Right GUI)
+    0x15, 0x00,                    // LOGICAL_MINIMUM (0)
+    0x25, 0x01,                    // LOGICAL_MAXIMUM (1)
+    0x81, 0x02,                    // INPUT (Data,Var,Abs) ; Modifier byte
+    0x95, 0x01,                    // REPORT_COUNT (1)
+    0x75, 0x08,                    // REPORT_SIZE (8)
+    0x81, 0x03,                    // INPUT (Cnst,Var,Abs) ; Reserved byte
+    0x95, 0x05,                    // REPORT_COUNT (5)
+    0x75, 0x01,                    // REPORT_SIZE (1)
+    0x05, 0x08,                    // USAGE_PAGE (LEDs)
+    0x19, 0x01,                    // USAGE_MINIMUM (Num Lock)
+    0x29, 0x05,                    // USAGE_MAXIMUM (Kana)
+    0x91, 0x02,                    // OUTPUT (Data,Var,Abs) ; LED report
+    0x95, 0x01,                    // REPORT_COUNT (1)
+    0x75, 0x03,                    // REPORT_SIZE (3)
+    0x91, 0x03,                    // OUTPUT (Cnst,Var,Abs) ; LED report padding
+    0x95, 0x06,                    // REPORT_COUNT (6)
+    0x75, 0x08,                    // REPORT_SIZE (8)
+    0x15, 0x00,                    // LOGICAL_MINIMUM (0)
+    0x25, 0x65,                    // LOGICAL_MAXIMUM (101)
+    0x05, 0x07,                    // USAGE_PAGE (Keyboard)
+    0x19, 0x00,                    // USAGE_MINIMUM (Reserved (no event indicated))
+    0x29, 0x65,                    // USAGE_MAXIMUM (Keyboard Application)
+    0x81, 0x00,                    // INPUT (Data,Ary,Abs)
+    0xc0                           // END_COLLECTION
+};
+
+// USB Initialization
+void usbInit(void) {
+    usbDeviceDisconnect();   // Disconnect USB
+    _delay_ms(100);
+    usbDeviceConnect();      // Connect USB
+    usbInitEndpoints();      // Initialize Endpoints
+    sei();                   // Enable Interrupts
 }
 
-// USB write out function
-void usbFunctionWriteOut(uint8_t *data, uint8_t len) {
-    // No action needed
+// USB Keyboard Functions
+void usbKeyboardSend(uchar key) {
+    uchar keycode[2] = {0, key};
+    usbSetInterrupt(usbHidReportDescriptor, keycode, sizeof(keycode));
+    usbPoll();
 }
 
-// Function to send USB HID keystroke
-void USB_HID_Send(uint8_t key) {
-    usbHidSend(&key, 1);          // Send USB HID key code
-    _delay_ms(10);                // Delay to ensure key press is registered
-}
-
-int main(void) {
-    // Plaintext password
-    uint8_t password[16] = {KEY_S, KEY_T, KEY_U, KEY_D, KEY_Y};
-    uint8_t encryptedPassword[16];
-
-    // Set button pin as input with pull-up resistor
-    DDRB &= ~(1 << PB0);
-    PORTB |= (1 << PB0);
+// Main Function
+int main(int argc, char *argv[]) {
+    if (argc < 2) {
+        // Print usage message if no password argument is provided
+        printf("Usage: %s <password>\n", argv[0]);
+        return 1; // Error: No password argument provided
+    } else if (argc > 2) {
+        // Print message if more than one argument is provided
+        printf("Error: Too many arguments.\n");
+        printf("Usage: %s <password>\n", argv[0]);
+        return 1;
+    }
 
     // Initialize USB
     usbInit();
-    usbDeviceDisconnect();
-    _delay_ms(100);
-    usbDeviceConnect();
-    sei();                         // Enable global interrupts
+
+    // Initialize Button Pin
+    BUTTON_DDR &= ~(1 << BUTTON_PIN);  // Set as input
+    BUTTON_PORT |= (1 << BUTTON_PIN);  // Enable pull-up resistor
 
     // Wait for button press
-    while (1) {
-        usbPoll();                 // Poll USB
-        if (!(PINB & (1 << PB0))) {
-            // Button pressed, send keystrokes for login
-            USB_HID_Send(KEY_ENTER);    // Enter to wake up system
-            _delay_ms(2000);             // Wait for system to wake up
-            USB_HID_Send(KEY_S);         // Press 'S' to select username field
-            USB_HID_Send(KEY_T);         // Enter username "study"
-            USB_HID_Send(KEY_U);
-            USB_HID_Send(KEY_D);
-            USB_HID_Send(KEY_Y);
-            USB_HID_Send(KEY_ENTER);     // Press Enter after entering username
-            _delay_ms(1000);              // Wait for password field to appear
-            encryptPassword(password, encryptedPassword);  // Encrypt the password
-            for (int i = 0; i < 16; i++) {
-                USB_HID_Send(encryptedPassword[i]);  // Send encrypted password
-            }
-            USB_HID_Send(KEY_ENTER);     // Press Enter to log in
-            break;                       // Exit the loop after logging in
-        }
-    }
+    while (BUTTON_PIN & (1 << BUTTON_PIN));  // Wait for button press
 
-    // Main loop
-    while (1) {
-        usbPoll();                     // Poll USB
-        // Your code here
+    // Loop through each character in the password argument
+    char *password = argv[1];
+    while (*password != '\0') {
+        usbKeyboardSend(*password++);
+        _delay_ms(10); // Delay between keystrokes
     }
 
     return 0;

@@ -57,6 +57,8 @@
     - Arduino Uno **Pin 11** (MOSI) to ATtiny85 **MOSI** pin
     - Arduino Uno **Pin 12** (MISO) to ATtiny85 **MISO** pin
     - Arduino Uno **Pin 13** (SCK) to ATtiny85 **SCK** pin
+      ![Alt Text](Images/pinout.png)
+      ![Alt Text](Images/ISP.png)
 
 3. **Compile Your Code**: Compile your code into a `.hex` file using `avr-gcc` and `avr-objcopy`. For example:
 

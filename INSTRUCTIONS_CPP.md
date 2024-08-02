@@ -50,7 +50,16 @@
 
 1. **Prepare Arduino**: Upload the ArduinoISP sketch to your Arduino board using the Arduino IDE.
 
-2. **Connect Arduino as ISP**: Connect your Arduino board configured as an ISP to your computer and to the ATtiny85. Ensure that the connections are correct (MISO, MOSI, SCK, RESET, VCC, and GND).
+2. **Connect Arduino as ISP**: Connect your Arduino board configured as an ISP to your computer and to the ATtiny85. Ensure that the connections are correct (MISO, MOSI, SCK, RESET, VCC, and GND). Connect the following pins from the Arduino Uno to the ATtiny85:
+    - Arduino Uno **5V** pin to ATtiny85 **VCC** pin
+    - Arduino Uno **GND** pin to ATtiny85 **GND** pin
+    - Arduino Uno **Pin 10** (SS) to ATtiny85 **RESET** pin
+    - Arduino Uno **Pin 11** (MOSI) to ATtiny85 **MOSI** pin
+    - Arduino Uno **Pin 12** (MISO) to ATtiny85 **MISO** pin
+    - Arduino Uno **Pin 13** (SCK) to ATtiny85 **SCK** pin
+      ![Alt Text](Images/pinout.png)
+      ![Alt Text](Images/ISP.png)
+
 
 3. **Compile Your Code**: Compile your C++ code into a `.elf` file using `avr-g++` and `avr-objcopy`. For example:
 
