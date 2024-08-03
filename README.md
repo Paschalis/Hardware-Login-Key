@@ -117,6 +117,11 @@ You can view the design files and images for each PCB version in the `PCB_Design
   <b>3D model of the hardware login key’s PCB using the Through-Hole (DIP) package in KiCad</b>
 </p>
 
+![Through-Hole PCB](Images/DIPkeyF360.png)
+<p align="center">
+  <b>3D model of the hardware login key’s PCB using the Through-Hole (DIP) package in Fusion 360</b>
+</p>
+
 ### SMD Version (SOIC)
 | Reference | Value   | Datasheet | Footprint                                                         | Qty | DNP |
 |-----------|---------|-----------|-------------------------------------------------------------------|-----|-----|
