@@ -444,7 +444,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "KicadHardwareKeySMD.kicad_pro",
+    "filename": "SOIC.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -482,7 +482,7 @@
       "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "SOIC.step",
       "svg": "",
       "vrml": ""
     },

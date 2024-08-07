@@ -1998,6 +1998,12 @@
 		(uuid "83d4b9fc-58f7-40fb-940b-b226023bc4fa")
 	)
 	(junction
+		(at 149.86 64.77)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "a93d9a35-43fd-4608-9695-445aa75dff53")
+	)
+	(junction
 		(at 189.23 82.55)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2026,6 +2032,16 @@
 			(type default)
 		)
 		(uuid "02e066de-7929-4f03-bab6-6dece3b8c32f")
+	)
+	(wire
+		(pts
+			(xy 149.86 74.93) (xy 149.86 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "06bf00a6-e57f-4b86-98d5-bd246ef59156")
 	)
 	(wire
 		(pts
@@ -2276,6 +2292,16 @@
 			(type default)
 		)
 		(uuid "b51b664a-4476-4168-9a93-9cafd45f2f55")
+	)
+	(wire
+		(pts
+			(xy 149.86 64.77) (xy 149.86 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b96ebf60-274b-4b9d-a7cb-c8118b05a687")
 	)
 	(wire
 		(pts
@@ -2936,6 +2962,73 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C_Small")
+		(at 149.86 72.39 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "45df9f4a-475b-4a90-8abc-e6cdcd3d1580")
+		(property "Reference" "C3"
+			(at 152.908 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "0.1uF"
+			(at 153.416 73.914 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+			(at 149.86 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 149.86 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 149.86 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "369505c9-a1df-41b3-94b2-e6b80f56fade")
+		)
+		(pin "2"
+			(uuid "42d111d2-98f8-4e47-b48a-a04f808f962b")
+		)
+		(instances
+			(project "QFN"
+				(path "/0a6a8da7-902a-4606-a25a-9707f8142ae7"
+					(reference "C3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R")
 		(at 111.76 66.04 0)
 		(unit 1)
@@ -3134,6 +3227,72 @@
 			(project "KicadHardwareKeySMD"
 				(path "/0a6a8da7-902a-4606-a25a-9707f8142ae7"
 					(reference "#PWR08")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 149.86 78.74 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "7d80e5a7-cefc-47d6-ab88-4357f3f44f03")
+		(property "Reference" "#PWR010"
+			(at 149.86 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 149.86 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 149.86 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 149.86 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 149.86 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "813a1917-7c04-4bfd-bc38-d1a5f857ca42")
+		)
+		(instances
+			(project "QFN"
+				(path "/0a6a8da7-902a-4606-a25a-9707f8142ae7"
+					(reference "#PWR010")
 					(unit 1)
 				)
 			)

@@ -1770,6 +1770,12 @@
 		(uuid "c454965c-8f08-472d-b421-662d0288388b")
 	)
 	(junction
+		(at 149.86 64.77)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d0d5f2bb-3810-4d2a-a2f6-21572150e657")
+	)
+	(junction
 		(at 123.19 91.44)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1822,6 +1828,16 @@
 			(type default)
 		)
 		(uuid "15cf7dbb-3c54-4a04-bdb6-2d9bb48a913e")
+	)
+	(wire
+		(pts
+			(xy 149.86 74.93) (xy 149.86 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1a6577d5-d058-45a4-93df-2d1bdeac2619")
 	)
 	(wire
 		(pts
@@ -2222,6 +2238,16 @@
 			(type default)
 		)
 		(uuid "fac1b796-aed1-407c-961f-22437fcd4a0e")
+	)
+	(wire
+		(pts
+			(xy 149.86 64.77) (xy 149.86 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fc0ebbff-8f96-485b-b2ec-8284f92ebd39")
 	)
 	(wire
 		(pts
@@ -2834,6 +2860,139 @@
 			(project ""
 				(path "/0a6a8da7-902a-4606-a25a-9707f8142ae7"
 					(reference "D1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 149.86 78.74 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4dd733e1-a6b7-4a94-aa17-7bb978b12a30")
+		(property "Reference" "#PWR010"
+			(at 149.86 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 149.86 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 149.86 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 149.86 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 149.86 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "bf884697-4f9f-44f5-b403-087479ae0ff0")
+		)
+		(instances
+			(project "SOIC"
+				(path "/0a6a8da7-902a-4606-a25a-9707f8142ae7"
+					(reference "#PWR010")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 149.86 72.39 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "565a732e-a59b-42de-9480-58a087e3360d")
+		(property "Reference" "C3"
+			(at 153.67 71.882 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "0.1uF"
+			(at 154.178 74.422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+			(at 149.86 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 149.86 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 149.86 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "77f4f5e9-5193-4b3e-ab7d-d3abd043907e")
+		)
+		(pin "2"
+			(uuid "0a3ef82b-59c1-4bab-9e34-03e1e6ba1b52")
+		)
+		(instances
+			(project "SOIC"
+				(path "/0a6a8da7-902a-4606-a25a-9707f8142ae7"
+					(reference "C3")
 					(unit 1)
 				)
 			)

@@ -2510,7 +2510,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "172d23ee-e381-44c2-98e4-c6cb83c904c2")
-		(property "Reference" "#PWR08"
+		(property "Reference" "#VCC0103"
 			(at 210.82 63.5 0)
 			(effects
 				(font
@@ -2560,7 +2560,7 @@
 		(instances
 			(project "KicadHardwareKey"
 				(path "/ffa2826e-8312-486c-b931-556ce1e063b3"
-					(reference "#PWR08")
+					(reference "#VCC0103")
 					(unit 1)
 				)
 			)
@@ -2888,7 +2888,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "42dc17e0-419e-4a13-a4cd-29b3e4dc4841")
-		(property "Reference" "#PWR02"
+		(property "Reference" "#GND0101"
 			(at 99.06 106.68 0)
 			(effects
 				(font
@@ -2938,7 +2938,7 @@
 		(instances
 			(project ""
 				(path "/ffa2826e-8312-486c-b931-556ce1e063b3"
-					(reference "#PWR02")
+					(reference "#GND0101")
 					(unit 1)
 				)
 			)
@@ -3024,7 +3024,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6a1b2fd3-1664-4d8c-82db-e24c8bfaedab")
-		(property "Reference" "#PWR05"
+		(property "Reference" "#VCC0102"
 			(at 167.64 64.77 0)
 			(effects
 				(font
@@ -3074,7 +3074,7 @@
 		(instances
 			(project "KicadHardwareKey"
 				(path "/ffa2826e-8312-486c-b931-556ce1e063b3"
-					(reference "#PWR05")
+					(reference "#VCC0102")
 					(unit 1)
 				)
 			)
@@ -3090,7 +3090,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7c22ded0-47ed-4353-8dc0-33270019dd7c")
-		(property "Reference" "#PWR01"
+		(property "Reference" "#VCC0101"
 			(at 99.06 62.23 0)
 			(effects
 				(font
@@ -3140,7 +3140,7 @@
 		(instances
 			(project "KicadHardwareKey"
 				(path "/ffa2826e-8312-486c-b931-556ce1e063b3"
-					(reference "#PWR01")
+					(reference "#VCC0101")
 					(unit 1)
 				)
 			)

@@ -101,6 +101,7 @@ You can view the design files and images for each PCB version in the `PCB_Design
 | Reference | Value   | Datasheet | Footprint                                                        | Qty | DNP |
 |-----------|---------|-----------|------------------------------------------------------------------|-----|-----|
 | C1, C2    | 22pF    | ~         | Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm                       | 2   |     |
+| C3    |  0.1uF   | ~         | Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm                       | 1   |     
 | D1        | LED GREEN | ~        | LED_THT:LED_D3.0mm                                                | 1   |     |
 | D2        | LED RED | ~         | LED_THT:LED_D3.0mm                                                | 1   |     |
 | J1        | USB-AM-S-X-X-TH |   | USB-AM-S-X-X-TH:SAMTEC_USB-AM-S-X-X-TH                           | 1   |     |
