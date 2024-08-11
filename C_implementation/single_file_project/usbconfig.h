@@ -14,8 +14,8 @@
 /* ---------------------------- Hardware Config ---------------------------- */
 
 #define USB_CFG_IOPORTNAME      B
-#define USB_CFG_DMINUS_BIT      3   // PB3 for D-
-#define USB_CFG_DPLUS_BIT       4   // PB4 for D+
+#define USB_CFG_DMINUS_BIT      4   // PB3 for D-
+#define USB_CFG_DPLUS_BIT       3   // PB4 for D+
 
 #define USB_CFG_CLOCK_KHZ       16000  // Assuming 16 MHz clock
 #define USB_CFG_CHECK_CRC       0      // Disable CRC check for simplicity
