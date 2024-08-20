@@ -236,13 +236,6 @@ A 3D printed case is available for the hardware key. To use it, follow these ste
 3. Print the case using your 3D printer.
 4. Once printed, assemble the hardware key inside the case for added protection and aesthetics.
 
-
-## 📜 License
-
-This project is licensed under the [MIT License](LICENSE).
-
-- [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
 ## 🧑‍💻 Authors
 - [![Paschalis M.](https://img.shields.io/badge/GitHub-Paschalis_Moschogiannis-orange?style=flat&logo=github)](https://github.com/Paschalis) 
 
@@ -251,5 +244,11 @@ This project is licensed under the [MIT License](LICENSE).
 -
 -
 -
+
+## 📜 License
+
+This project is licensed under the [GPLv3 License](https://opensource.org/licenses/GPL-3.0) - see the [LICENSE](LICENSE) file for details.
+
+- [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.html)
 
 **Enjoy** your secure **hardware** login key 🔐! **Thank you for visiting Hardware-Login-Key!** ✨
