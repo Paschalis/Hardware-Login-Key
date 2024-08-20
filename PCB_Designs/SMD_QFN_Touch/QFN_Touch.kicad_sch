@@ -2964,7 +2964,7 @@
 				)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
+		(property "Footprint" "Library:LED_Kingbright_APA1606_1.6x0.6mm_Horizontal_NEW"
 			(at 54.61 71.12 0)
 			(effects
 				(font
@@ -3837,7 +3837,7 @@
 				)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
+		(property "Footprint" "Library:LED_Kingbright_APA1606_1.6x0.6mm_Horizontal_NEW"
 			(at 109.22 109.22 0)
 			(effects
 				(font

@@ -93,13 +93,13 @@ The hardware key is available in multiple PCB package versions to accommodate di
   - ![QFN PCB](Images/QFN.png)
     *With tactile switch.*
   - ![QFN PCB](Images/QFN_Touch.png)
-    *QFN PCB designed for a touch pad without using the TTP223 IC. (Uses a basic capacitive touch sensing method by measuring changes in capacitance with the microcontroller’s ADC.)*
+    *QFN PCB designed for a touch pad **without** using the TTP223 IC. (Uses a basic capacitive touch sensing method by measuring changes in capacitance with the microcontroller’s ADC.)*
 
-    <p align="center">
-      <img src="https://img.shields.io/badge/status-under%20construction-orange" alt="Under Construction">
-    </p>
-    
-    *QFN PCB designed for a touch pad using the TTP223 IC for enhanced reliability. (Uses a simple high/low output for touch detection, similar to a tactile switch, providing a straightforward 0 or 1 output.)*
+  - ![QFN PCB](Images/QFN_Touch_TTP223.png)
+    **QFN PCB designed for a touch pad using the TTP223 IC for enhanced reliability.**  
+    - Uses a simple high/low output for touch detection, similar to a tactile switch, providing a straightforward 0 or 1 output.  
+    - The PCB is designed with **4 layers** to optimize signal integrity and reliability.
+
 ### In Fusion 360
 ![Under Construction](https://img.shields.io/badge/status-under%20construction-orange)
 
@@ -195,9 +195,26 @@ You can view the design files and images for each PCB version in the `PCB_Design
   Without the TTP223 IC. (Uses basic capacitive touch sensing with the microcontroller’s ADC and custom code for detection.)
 </p>
 
-<p align="center">
-  <img src="https://img.shields.io/badge/status-under%20construction-orange" alt="Under Construction">
-</p>
+| Reference | Value         | Datasheet                                                                                          | Footprint                                                            | Qty | DNP |
+|-----------|---------------|---------------------------------------------------------------------------------------------------|----------------------------------------------------------------------|-----|-----|
+| C1,C2     | 22pF          | ~                                                                                                 | Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder            | 2   |     |
+| C3        | 0.1uF         | ~                                                                                                 | Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder            | 1   |     |
+| C4        | 1uF           | ~                                                                                                 | Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder            | 1   |     |
+| C5        | 30pF          | ~                                                                                                 | Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder            | 1   |     |
+| D1        | LED RED       | ~                                                                                                 | Library:LED_Kingbright_APA1606_1.6x0.6mm_Horizontal_NEW              | 1   |     |
+| D2        | LED GREEN     | ~                                                                                                 | Library:LED_Kingbright_APA1606_1.6x0.6mm_Horizontal_NEW              | 1   |     |
+| J1        | USB-AM-S-X-X-TH|                                                                                                   | USB-AM-S-X-X-TH:USB_PCB                                              | 1   |     |
+| R1        | 10k           | ~                                                                                                 | Resistor_SMD:R_0201_0603Metric_Pad0.64x0.40mm_HandSolder             | 1   |     |
+| R2        | 330           | ~                                                                                                 | Resistor_SMD:R_0201_0603Metric_Pad0.64x0.40mm_HandSolder             | 1   |     |
+| R4        | 1k5           | ~                                                                                                 | Resistor_SMD:R_0201_0603Metric_Pad0.64x0.40mm_HandSolder             | 1   |     |
+| TP1,TP2   | TestPoint     | ~                                                                                                 | TestPoint:TestPoint_Pad_D3.0mm                                       | 2   |     |
+| U1        | ATtiny85-20M  | [Datasheet](http://ww1.microchip.com/downloads/en/DeviceDoc/atmel-2586-avr-8-bit-microcontroller-attiny25-attiny45-attiny85_datasheet.pdf) | Package_DFN_QFN:QFN-20-1EP_4x4mm_P0.5mm_EP2.5x2.5mm_ThermalVias      | 1   |     |
+| U2        | TTP223-BA6    |     [Datasheet](https://components101.com/sites/default/files/component_datasheet/TTP223-Datasheet.pdf)                                                                                               | TTP223-BA6:SOT23-6                                                   | 1   |     |
+| Y1        | 12MHz         | ~                                                                                                 | Crystal:Crystal_SMD_0603-2Pin_6.0x3.5mm_HandSoldering                | 1   |     |
+
+
+![QFN PCB](Images/QFN_Touch_key_TTP223.png)
+
 
 <p align="center">
   <b>3D model of the hardware login key’s PCB using the QFN package in KiCad.</b> 
