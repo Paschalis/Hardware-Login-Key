@@ -1,0 +1,49 @@
+name: Build AVR Firmware
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+jobs:
+  build:
+    name: Build – ${{ matrix.variant }}
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        variant:
+          - tactile_switch
+          - touch_pad
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install AVR toolchain
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends \
+            make gcc-avr binutils-avr avr-libc
+
+      - name: Build (${{ matrix.variant }})
+        working-directory: C_implementation/${{ matrix.variant }}
+        run: |
+          make clean
+          make -j$(nproc)
+
+      - name: Report firmware size (${{ matrix.variant }})
+        working-directory: C_implementation/${{ matrix.variant }}
+        run: |
+          avr-size --format=avr --mcu=attiny85 main.elf
+
+      - name: Upload firmware artifact (${{ matrix.variant }})
+        uses: actions/upload-artifact@v4
+        with:
+          name: firmware-${{ matrix.variant }}
+          path: |
+            C_implementation/${{ matrix.variant }}/main.hex
+            C_implementation/${{ matrix.variant }}/main.elf
+          if-no-files-found: error
+          retention-days: 30

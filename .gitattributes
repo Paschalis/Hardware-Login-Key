@@ -1,0 +1,16 @@
+# ── Language detection overrides for GitHub Linguist ──────────────────────────
+
+# KiCad files are not PHP — tell Linguist to ignore them for stats
+*.kicad_pcb   linguist-detectable=false
+*.kicad_sch   linguist-detectable=false
+*.kicad_pro   linguist-detectable=false
+*.kicad_mod   linguist-detectable=false
+*.cad         linguist-detectable=false
+
+# V-USB bundled library — don't count toward project language stats
+C_implementation/*/usbdrv/**  linguist-vendored=true
+
+# Documentation and assets — not code
+*.md          linguist-detectable=false
+Images/**     linguist-detectable=false
+3d_printed_case/** linguist-detectable=false

@@ -1,0 +1,40 @@
+# ── Build artifacts ────────────────────────────────────────────────────────────
+*.elf
+*.hex
+*.o
+*.map
+
+# ── macOS ──────────────────────────────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# ── KiCad ─────────────────────────────────────────────────────────────────────
+*.000
+*.bak
+*.bck
+*.kicad_pcb-bak
+*.kicad_sch-bak
+*-backups
+*.kicad_prl
+*.sch-bak
+*~
+_autosave-*
+*.tmp
+*-save.pro
+*-save.kicad_pcb
+fp-info-cache
+
+# ── Netlist / Autorouter exports ───────────────────────────────────────────────
+*.net
+*.dsn
+*.ses
+
+# ── BOM exports ────────────────────────────────────────────────────────────────
+*.xml
+*.csv
+
+# ── Editor artifacts ───────────────────────────────────────────────────────────
+*.swp
+*.swo
+.vscode/
