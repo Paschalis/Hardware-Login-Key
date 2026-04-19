@@ -38,3 +38,6 @@ fp-info-cache
 *.swp
 *.swo
 .vscode/
+
+# KiCad automatic backup history
+**/.history/
